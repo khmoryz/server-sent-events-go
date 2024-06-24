@@ -15,7 +15,6 @@ func sse(w http.ResponseWriter, r *http.Request) {
 
 	t := time.NewTicker(1 * time.Second)
 	defer t.Stop()
-	// go func() {
 	for {
 		select {
 		case v := <-topic:
@@ -27,7 +26,6 @@ func sse(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-	// }()
 }
 
 func main() {
